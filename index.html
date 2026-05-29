@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silk & Scissors Unisex Salon | Premium Grooming & Beauty in Chittorgarh</title>
+<meta name="description" content="Experience luxury unisex salon services at Silk & Scissors in Pratap Nagar, Chittorgarh. Book appointments for haircuts, styling, coloring, bridal makeup, spa & more. Walk-ins welcome.">
+<meta name="keywords" content="salon Chittorgarh, unisex salon, hair salon, beauty salon, Silk & Scissors, Pratap Nagar salon, haircut, hairstyling, bridal makeup, grooming">
+<link rel="canonical" href="https://silknscissors.com">
+<meta property="og:title" content="Silk & Scissors Unisex Salon | Premium Grooming">
+<meta property="og:description" content="Experience luxury unisex salon services in Chittorgarh. Book appointments online.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://silknscissors.com">
+<meta name="geo.position" content="24.876875;74.617248">
+<meta name="geo.placename" content="Chittorgarh, Rajasthan">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root {
+  --gold: #C9A96E;
+  --gold-light: #E8D5A3;
+  --gold-dark: #A8883E;
+  --black: #0D0D0D;
+  --black-2: #1A1A1A;
+  --charcoal: #2A2A2A;
+  --cream: #F5F0E8;
+  --cream-dark: #E8E0D0;
+  --white: #FFFFFF;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-alt: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --shadow-gold: 0 4px 20px rgba(201, 169, 110, 0.3);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); color: var(--cream); background: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+::selection { background: var(--gold); color: var(--black); }
+
+/* ANNOUNCEMENT BAR */
+.announcement {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1001;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+  color: var(--black);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.announcement-close {
+  background: none;
+  border: none;
+  color: var(--black);
+  cursor: pointer;
+  font-size: 1.1rem;
+  opacity: 0.7;
+  transition: var(--transition);
+  position: absolute;
+  right: 1rem;
+}
+.announcement-close:hover { opacity: 1; }
+
+/* ORNAMENTAL DIVIDER */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+.ornament-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+}
+.ornament-symbol {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--gold);
+  opacity: 0.5;
+  line-height: 1;
+}
+.ornament-diamond { color: var(--gold); opacity: 0.3; font-size: 0.6rem; }
+
+/* THREE.JS HERO */
+#three-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* STICKY NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  transition: var(--transition);
+}
+nav.announce-active { top: 38px; }
+nav.scrolled { background: rgba(13, 13, 13, 0.95); border-bottom-color: rgba(201, 169, 110, 0.2); }
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.nav-logo svg { width: 32px; height: 32px; }
+.nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+.nav-links a {
+  color: rgba(245, 240, 232, 0.7);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  position: relative;
+  white-space: nowrap;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: var(--transition);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2px;
+  font-weight: 600 !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.mobile-toggle span { width: 24px; height: 2px; background: var(--gold); transition: var(--transition); }
+
+/* HERO */
+.hero {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, rgba(13,13,13,0.6) 0%, rgba(13,13,13,0.3) 50%, rgba(13,13,13,0.6) 100%);
+}
+.hero-content { max-width: 900px; }
+.hero-subtitle {
+  font-family: var(--font-alt);
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  animation: fadeUp 1s ease 0.3s both;
+}
+.hero-script {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--gold-light);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+  animation: fadeUp 1s ease 0.2s both;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease 0.5s both;
+}
+.hero-title span { color: var(--gold); }
+.hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.7);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  animation: fadeUp 1s ease 0.7s both;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s ease 0.9s both; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold { background: var(--gold); color: var(--black); }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.btn-outline:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
+.btn-lg { padding: 1.1rem 2.8rem; font-size: 0.9rem; }
+.btn-sm { padding: 0.6rem 1.2rem; font-size: 0.75rem; }
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(245, 240, 232, 0.4);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: bounceDown 2s ease infinite;
+}
+.scroll-indicator .line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounceDown { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+/* SECTIONS */
+section { position: relative; z-index: 1; padding: 6rem 2rem; }
+.section-tag {
+  font-family: var(--font-alt);
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  font-weight: 300;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.section-desc {
+  color: rgba(245, 240, 232, 0.6);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 600px;
+  font-weight: 300;
+}
+.section-script {
+  font-family: var(--font-script);
+  color: var(--gold-light);
+  opacity: 0.5;
+  font-size: 1.4rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* ABOUT */
+.about { background: var(--black-2); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.about-image {
+  position: relative;
+  height: 480px;
+  background: linear-gradient(135deg, var(--charcoal), var(--black));
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 2px;
+}
+.about-image-placeholder {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: rgba(201, 169, 110, 0.2);
+  text-align: center;
+  padding: 2rem;
+}
+.about-text h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.about-text p {
+  color: rgba(245, 240, 232, 0.65);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+.stat { text-align: center; }
+.stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--gold); }
+.stat-label { font-size: 0.75rem; color: rgba(245, 240, 232, 0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+
+/* SERVICES */
+.services { background: var(--black); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--black-2);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  padding: 2.5rem 2rem;
+  border-radius: 2px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
+  transition: var(--transition);
+}
+.service-card:hover { transform: translateY(-4px); border-color: rgba(201, 169, 110, 0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+.service-card:hover::before { height: 100%; }
+.service-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.service-card p {
+  color: rgba(245, 240, 232, 0.5);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.service-price {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+/* OFFERS */
+.offers { background: var(--black-2); }
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.offer-card {
+  background: linear-gradient(135deg, var(--black), var(--charcoal));
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  padding: 2rem;
+  border-radius: 2px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.offer-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.offer-card:hover { border-color: rgba(201, 169, 110, 0.25); transform: translateY(-3px); }
+.offer-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+}
+.offer-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.offer-card p {
+  color: rgba(245, 240, 232, 0.55);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.offer-valid {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.05em;
+}
+
+/* GALLERY */
+.gallery { background: var(--black); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-top: 3rem;
+}
+.gallery-item {
+  aspect-ratio: 1;
+  background: var(--charcoal);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.gallery-item:hover { transform: scale(1.03); }
+.gallery-item-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-alt);
+  color: rgba(201, 169, 110, 0.15);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid rgba(201, 169, 110, 0.06);
+  background: linear-gradient(135deg, var(--charcoal), var(--black-2));
+}
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(6) { grid-column: span 2; }
+
+/* TEAM */
+.team { background: var(--black-2); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.team-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: 2px;
+  transition: var(--transition);
+  background: var(--black);
+}
+.team-card:hover { border-color: rgba(201, 169, 110, 0.2); transform: translateY(-3px); }
+.team-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  background: linear-gradient(135deg, var(--charcoal), var(--black-2));
+  border: 2px solid rgba(201, 169, 110, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+.team-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.team-role {
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+.team-card p {
+  color: rgba(245, 240, 232, 0.45);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* TESTIMONIALS */
+.testimonials { background: var(--black); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.testimonial-card {
+  background: var(--black-2);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  padding: 2rem;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.testimonial-card:hover { border-color: rgba(201, 169, 110, 0.2); }
+.testimonial-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 2px; }
+.testimonial-text {
+  font-family: var(--font-alt);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.7);
+  font-style: italic;
+  margin-bottom: 1.2rem;
+}
+.testimonial-author { font-size: 0.85rem; font-weight: 500; color: var(--gold); }
+.testimonial-role { font-size: 0.75rem; color: rgba(245, 240, 232, 0.4); }
+
+/* PRODUCTS */
+.products { background: var(--black-2); }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.product-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: 2px;
+  transition: var(--transition);
+  background: var(--black);
+}
+.product-card:hover { border-color: rgba(201, 169, 110, 0.2); transform: translateY(-3px); }
+.product-logo {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+}
+.product-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.product-card p {
+  color: rgba(245, 240, 232, 0.45);
+  font-size: 0.78rem;
+  font-weight: 300;
+}
+
+/* LOYALTY */
+.loyalty { background: var(--black); position: relative; overflow: hidden; }
+.loyalty::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(201,169,110,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+.loyalty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.loyalty-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.loyalty-content p {
+  color: rgba(245, 240, 232, 0.6);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.loyalty-tiers { display: flex; gap: 1rem; flex-wrap: wrap; }
+.loyalty-tier {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: 2px;
+  background: var(--black-2);
+}
+.loyalty-tier h4 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.loyalty-tier p {
+  font-size: 0.78rem;
+  color: rgba(245, 240, 232, 0.5);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* BLOG */
+.blog { background: var(--black-2); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.blog-card {
+  background: var(--black);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.blog-card:hover { transform: translateY(-4px); border-color: rgba(201, 169, 110, 0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+.blog-image {
+  height: 200px;
+  background: linear-gradient(135deg, var(--charcoal), var(--black-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+}
+.blog-card-body { padding: 1.5rem; }
+.blog-card-body .blog-date {
+  font-size: 0.7rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.blog-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.blog-card-body p {
+  color: rgba(245, 240, 232, 0.5);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* FAQ */
+.faq { background: var(--black); }
+.faq-list { max-width: 800px; margin: 3rem auto 0; }
+.faq-item {
+  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+  padding: 1.2rem 0;
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+}
+.faq-question h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+  transition: var(--transition);
+}
+.faq-question:hover h3 { color: var(--gold); }
+.faq-toggle {
+  font-size: 1.2rem;
+  color: var(--gold);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.faq-item.active .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 2rem 0 0;
+}
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding-top: 0.8rem;
+}
+.faq-answer p {
+  color: rgba(245, 240, 232, 0.55);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* BOOKING */
+.booking { background: var(--black-2); }
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+.booking-form { background: var(--black); padding: 2.5rem; border: 1px solid rgba(201, 169, 110, 0.1); border-radius: 2px; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.6);
+  margin-bottom: 0.4rem;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--black-2);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 2px;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+.time-slot {
+  padding: 0.5rem;
+  text-align: center;
+  background: var(--black-2);
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: 2px;
+  color: rgba(245, 240, 232, 0.5);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.time-slot:hover { border-color: var(--gold); color: var(--gold); }
+.time-slot.selected { background: var(--gold); color: var(--black); border-color: var(--gold); font-weight: 600; }
+.time-slot.booked { opacity: 0.3; pointer-events: none; text-decoration: line-through; }
+
+.booking-info { padding: 1rem 0; }
+.booking-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.booking-info p { color: rgba(245, 240, 232, 0.6); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300; font-size: 0.9rem; }
+.booking-contact { display: flex; flex-direction: column; gap: 0.8rem; }
+.booking-contact-item { display: flex; align-items: center; gap: 0.8rem; color: rgba(245, 240, 232, 0.7); font-size: 0.9rem; font-weight: 300; text-decoration: none; transition: var(--transition); }
+.booking-contact-item:hover { color: var(--gold); }
+.booking-contact-item .icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--black); border: 1px solid rgba(201, 169, 110, 0.15); border-radius: 50%; font-size: 1rem; }
+
+/* CONTACT */
+.contact { background: var(--black); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+.map-container { border-radius: 2px; overflow: hidden; border: 1px solid rgba(201, 169, 110, 0.1); }
+.map-container iframe { width: 100%; height: 100%; min-height: 400px; display: block; }
+.contact-details { display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; }
+.contact-detail-item { display: flex; gap: 1rem; align-items: flex-start; }
+.contact-detail-icon {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+.contact-detail-text h4 { font-family: var(--font-display); font-size: 1rem; color: var(--white); margin-bottom: 0.2rem; }
+.contact-detail-text p, .contact-detail-text a { color: rgba(245, 240, 232, 0.6); font-size: 0.9rem; text-decoration: none; transition: var(--transition); font-weight: 300; }
+.contact-detail-text a:hover { color: var(--gold); }
+
+/* FOOTER */
+footer {
+  position: relative;
+  z-index: 1;
+  background: var(--black-2);
+  border-top: 1px solid rgba(201, 169, 110, 0.08);
+  padding: 3rem 2rem 1.5rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-brand .nav-logo { margin-bottom: 1rem; }
+.footer-brand p { color: rgba(245, 240, 232, 0.5); font-size: 0.85rem; line-height: 1.7; font-weight: 300; max-width: 300px; }
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block;
+  color: rgba(245, 240, 232, 0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  transition: var(--transition);
+  font-weight: 300;
+}
+.footer-col a:hover { color: var(--gold); padding-left: 4px; }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(201, 169, 110, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p { color: rgba(245, 240, 232, 0.3); font-size: 0.75rem; }
+.footer-socials { display: flex; gap: 1rem; }
+.footer-socials a {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 50%;
+  color: rgba(245, 240, 232, 0.4);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+.footer-socials a:hover { border-color: var(--gold); color: var(--gold); background: rgba(201, 169, 110, 0.1); }
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  transition: var(--transition);
+  animation: pulse 2s ease infinite;
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); }
+@keyframes pulse { 0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); } 50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); } }
+
+/* EMERGENCY BAR */
+.emergency-bar {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.emergency-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: rgba(220, 38, 38, 0.9);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-decoration: none;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+  white-space: nowrap;
+}
+.emergency-btn:hover { background: rgb(220, 38, 38); transform: translateX(-4px); }
+
+/* SCROLL TO TOP */
+.scroll-top {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 998;
+  width: 44px;
+  height: 44px;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-gold);
+}
+.scroll-top.visible { opacity: 1; pointer-events: auto; }
+.scroll-top:hover { background: var(--gold-light); transform: translateY(-3px); }
+
+/* ADMIN PANEL */
+.admin-panel {
+  position: fixed;
+  top: 0; right: 0;
+  width: 400px;
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--black-2);
+  border-left: 1px solid rgba(201, 169, 110, 0.1);
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: var(--transition);
+  overflow-y: auto;
+  padding: 2rem;
+}
+.admin-panel.open { transform: translateX(0); }
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1999;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+.admin-overlay.open { opacity: 1; pointer-events: auto; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.admin-header h2 { font-family: var(--font-display); color: var(--gold); }
+.admin-close { background: none; border: none; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
+.booking-item {
+  background: var(--black);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: 2px;
+}
+.booking-item h4 { font-family: var(--font-display); color: var(--gold); margin-bottom: 0.3rem; font-size: 1rem; }
+.booking-item p { color: rgba(245, 240, 232, 0.5); font-size: 0.8rem; }
+.booking-item .status {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 1px;
+  margin-top: 0.5rem;
+}
+.status.pending { background: rgba(201, 169, 110, 0.15); color: var(--gold); }
+.status.confirmed { background: rgba(37, 211, 102, 0.15); color: #25D366; }
+
+/* NOTIFICATION TOAST */
+.toast {
+  position: fixed;
+  top: 5rem;
+  right: 1.5rem;
+  z-index: 3000;
+  padding: 1rem 1.5rem;
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  transform: translateX(120%);
+  transition: var(--transition);
+  max-width: 350px;
+}
+.toast.show { transform: translateX(0); }
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .booking-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .gallery-item:nth-child(6) { grid-column: span 2; }
+  .loyalty-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .announcement { font-size: 0.7rem; padding: 0.4rem 0.8rem; gap: 0.5rem; }
+  .announcement-close { right: 0.5rem; }
+  nav { padding: 0 1rem; }
+  nav.announce-active { top: 34px; }
+  .nav-links { position: fixed; top: 72px; left: 0; right: 0; background: rgba(13,13,13,0.98); flex-direction: column; padding: 2rem; gap: 1.5rem; transform: translateY(-120%); transition: var(--transition); border-bottom: 1px solid rgba(201,169,110,0.1); }
+  .nav-links.open { transform: translateY(0); }
+  .mobile-toggle { display: flex; }
+  section { padding: 4rem 1rem; }
+  .hero-title { font-size: clamp(2rem, 10vw, 3rem); }
+  .hero-desc { font-size: 0.95rem; }
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .stat-num { font-size: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .time-slots { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .admin-panel { width: 100%; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(6) { grid-column: span 2; }
+  .booking-form { padding: 1.5rem; }
+  .emergency-bar { right: 0.8rem; bottom: 4.5rem; }
+  .emergency-btn { font-size: 0.7rem; padding: 0.5rem 0.8rem; }
+  .loyalty-tiers { flex-direction: column; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .offers-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Silk & Scissors Unisex Salon",
+  "image": "https://silknscissors.com/logo.png",
+  "url": "https://silknscissors.com",
+  "telephone": "+917665469604",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pratap Nagar Chohra, opposite Dominos Pizza, near Friends Collection",
+    "addressLocality": "Pratap Nagar, Chittorgarh",
+    "addressRegion": "Rajasthan",
+    "postalCode": "312001",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 24.876875, "longitude": 74.617248 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "10:00", "closes": "20:00" }
+  ],
+  "priceRange": "₹₹",
+  "description": "Premium unisex salon in Chittorgarh offering haircuts, styling, coloring, bridal makeup, spa, and grooming services for men and women."
+}
+</script>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement" id="announcement">
+  <span>&#127881; Grand Opening Offer: Flat 20% Off on All Services! Use Code: SILK20</span>
+  <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&times;</button>
+</div>
+
+<!-- THREE.JS CONTAINER -->
+<div id="three-container"></div>
+
+<!-- NAV -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 28H4L16 4Z" fill="#C9A96E"/><circle cx="16" cy="16" r="3" fill="#0D0D0D"/></svg>
+    Silk & Scissors
+  </a>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#booking">Book Now</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:+917665469604" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-script">Welcome to Elegance</p>
+    <p class="hero-subtitle">Premium Unisex Salon</p>
+    <h1 class="hero-title">Where <span>Elegance</span><br>Meets Precision</h1>
+    <p class="hero-desc">Experience the pinnacle of grooming and beauty at Silk & Scissors — where every cut, color, and style is crafted to elevate your confidence.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn btn-gold btn-lg">Book Appointment</a>
+      <a href="tel:+917665469604" class="btn btn-outline btn-lg">Call Now</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">~</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">~</span><div class="ornament-line"></div></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-tag">About Us</p>
+    <h2 class="section-title">Crafted for the <span style="color:var(--gold)">Discerning</span></h2>
+    <p class="section-script">Where beauty meets artistry</p>
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="about-image-placeholder">
+          <span style="font-size:4rem;display:block;margin-bottom:1rem">&#10070;</span>
+          Silk & Scissors Unisex Salon
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Your Destination for Premium Grooming</h3>
+        <p>Nestled in the heart of Pratap Nagar, Chittorgarh, Silk & Scissors Unisex Salon is more than just a salon — it's an experience. We blend timeless techniques with modern trends to deliver exceptional grooming and beauty services for both men and women.</p>
+        <p>Our team of highly skilled stylists and beauticians are trained in the latest industry techniques, using premium products to ensure every visit leaves you looking and feeling your absolute best. From precision haircuts to luxurious spa treatments, we cater to every aspect of your personal care.</p>
+        <p>At Silk & Scissors, we believe that style is a powerful form of self-expression. Whether you're preparing for a special occasion or simply treating yourself, our dedicated team is committed to providing personalized service in a warm, welcoming environment.</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Happy Clients</div></div>
+          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Services</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">*</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">*</span><div class="ornament-line"></div></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-tag">Our Services</p>
+    <h2 class="section-title">Premium <span style="color:var(--gold)">Services</span></h2>
+    <p class="section-script">Tailored to perfection</p>
+    <p class="section-desc">From classic cuts to advanced treatments — every service is delivered with precision, care, and luxury.</p>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">~</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">~</span><div class="ornament-line"></div></div>
+
+<!-- OFFERS -->
+<section class="offers" id="offers">
+  <div class="container">
+    <p class="section-tag">Special Offers</p>
+    <h2 class="section-title">Exclusive <span style="color:var(--gold)">Deals</span></h2>
+    <p class="section-script">Treat yourself, save more</p>
+    <p class="section-desc">Don't miss out on our limited-time offers. Book now and enjoy premium services at unbeatable prices.</p>
+    <div class="offers-grid" id="offersGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">*</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">*</span><div class="ornament-line"></div></div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <p class="section-tag">Gallery</p>
+    <h2 class="section-title">Our <span style="color:var(--gold)">Work</span></h2>
+    <p class="section-script">A picture speaks a thousand words</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">~</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">~</span><div class="ornament-line"></div></div>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <p class="section-tag">Meet Our Team</p>
+    <h2 class="section-title">The <span style="color:var(--gold)">Artisans</span></h2>
+    <p class="section-script">Masters of their craft</p>
+    <p class="section-desc">Behind every great look is a talented artist. Get to know the people who make Silk & Scissors extraordinary.</p>
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">*</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">*</span><div class="ornament-line"></div></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <p class="section-tag">Testimonials</p>
+    <h2 class="section-title">What Our <span style="color:var(--gold)">Clients Say</span></h2>
+    <p class="section-script">Hear from our cherished guests</p>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">~</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">~</span><div class="ornament-line"></div></div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="container">
+    <p class="section-tag">Brands We Use</p>
+    <h2 class="section-title">Premium <span style="color:var(--gold)">Products</span></h2>
+    <p class="section-script">Quality you can trust</p>
+    <p class="section-desc">We partner with world-class brands to deliver the best results for your hair and skin.</p>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">*</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">*</span><div class="ornament-line"></div></div>
+
+<!-- LOYALTY -->
+<section class="loyalty" id="loyalty">
+  <div class="container">
+    <p class="section-tag">Loyalty Program</p>
+    <h2 class="section-title">The <span style="color:var(--gold)">Silk Club</span></h2>
+    <p class="section-script">Rewarded for your loyalty</p>
+    <div class="loyalty-grid">
+      <div class="loyalty-content">
+        <h3>Join the Silk Club & Earn Rewards</h3>
+        <p>Every visit brings you closer to exclusive perks and privileges. As a Silk Club member, you earn points on every service, redeemable for free treatments, discounts, and VIP access to new services.</p>
+        <div class="loyalty-tiers">
+          <div class="loyalty-tier">
+            <h4>Silk</h4>
+            <p>0-999 pts<br>Welcome Benefits</p>
+          </div>
+          <div class="loyalty-tier">
+            <h4>Gold</h4>
+            <p>1000-4999 pts<br>15% Bonus Points</p>
+          </div>
+          <div class="loyalty-tier">
+            <h4>Platinum</h4>
+            <p>5000+ pts<br>VIP Treatment</p>
+          </div>
+        </div>
+        <a href="#booking" class="btn btn-gold" style="margin-top:1.5rem">Start Earning Points</a>
+      </div>
+      <div style="background:var(--black-2);border:1px solid rgba(201,169,110,0.1);border-radius:2px;padding:3rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <span style="font-size:4rem;margin-bottom:1rem;opacity:0.5">&#9733;</span>
+        <h3 style="font-family:var(--font-display);color:var(--gold);margin-bottom:0.5rem">Your Points Balance</h3>
+        <p style="color:rgba(245,240,232,0.4);font-size:0.9rem;font-weight:300">Sign up on your next visit to start tracking your rewards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">~</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">~</span><div class="ornament-line"></div></div>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="container">
+    <p class="section-tag">Our Blog</p>
+    <h2 class="section-title">Style <span style="color:var(--gold)">Insights</span></h2>
+    <p class="section-script">Tips, trends & tales</p>
+    <p class="section-desc">Stay ahead of the curve with expert grooming advice, trend reports, and behind-the-scenes stories.</p>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">*</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">*</span><div class="ornament-line"></div></div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <p class="section-tag">FAQ</p>
+    <h2 class="section-title">Frequently Asked <span style="color:var(--gold)">Questions</span></h2>
+    <p class="section-script">Everything you need to know</p>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">~</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">~</span><div class="ornament-line"></div></div>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="container">
+    <p class="section-tag">Book Now</p>
+    <h2 class="section-title">Reserve Your <span style="color:var(--gold)">Experience</span></h2>
+    <p class="section-script">Your style journey begins here</p>
+    <div class="booking-grid">
+      <div class="booking-form" id="bookingForm">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="bookName" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="bookPhone" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+          <div class="form-group">
+            <label>Service</label>
+            <select id="bookService"><option value="">Select a service</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="bookDate" required>
+          </div>
+          <div class="form-group">
+            <label>Time Slot</label>
+            <div class="time-slots" id="timeSlots"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Special Requests (Optional)</label>
+          <textarea id="bookNotes" placeholder="Any specific requirements..."></textarea>
+        </div>
+        <button class="btn btn-gold" id="submitBooking" style="width:100%;justify-content:center">Confirm Booking</button>
+        <p style="margin-top:0.8rem;font-size:0.75rem;color:rgba(245,240,232,0.35);text-align:center">You'll receive a confirmation message shortly</p>
+      </div>
+      <div class="booking-info">
+        <h3>Why Book With Us?</h3>
+        <p>Skip the wait and secure your preferred time slot. Our booking system ensures you receive undivided attention from our expert team at your convenience.</p>
+        <div class="booking-contact">
+          <a href="tel:+917665469604" class="booking-contact-item">
+            <span class="icon">&#9742;</span>
+            <span>+91 7665469604</span>
+          </a>
+          <a href="https://wa.me/917665469604" target="_blank" class="booking-contact-item">
+            <span class="icon">&#10095;</span>
+            <span>Book via WhatsApp</span>
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=24.876875,74.617248" target="_blank" class="booking-contact-item">
+            <span class="icon">&#9906;</span>
+            <span>Get Directions</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament"><div class="ornament-line"></div><span class="ornament-symbol">*</span><span class="ornament-diamond">&#9670;</span><span class="ornament-symbol">*</span><div class="ornament-line"></div></div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-tag">Contact</p>
+    <h2 class="section-title">Get in <span style="color:var(--gold)">Touch</span></h2>
+    <p class="section-script">We'd love to hear from you</p>
+    <div class="contact-grid">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.6185280436903!2d74.6172477755287!3d24.876875177918592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3968a1b78fe7d59d%3A0x9af6b367e725e707!2sSilk%20%26%20Scissors%20Unisex%20Salon!5e0!3m2!1sen!2sin!4v1780055259778!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Silk & Scissors Salon Location"></iframe>
+      </div>
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">&#9906;</div>
+          <div class="contact-detail-text">
+            <h4>Address</h4>
+            <p>Pratap Nagar Chohra, opposite Dominos Pizza, near Friends Collection, Pratap Nagar, Chittorgarh, Rajasthan 312001</p>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">&#9742;</div>
+          <div class="contact-detail-text">
+            <h4>Phone</h4>
+            <a href="tel:+917665469604">+91 7665469604</a>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">&#9993;</div>
+          <div class="contact-detail-text">
+            <h4>Hours</h4>
+            <p>Mon - Sat: 10:00 AM - 8:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=24.876875,74.617248" target="_blank" class="btn btn-outline" style="align-self:flex-start;margin-top:0.5rem">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 28H4L16 4Z" fill="#C9A96E"/><circle cx="16" cy="16" r="3" fill="#0D0D0D"/></svg>
+        Silk & Scissors
+      </a>
+      <p>Premium unisex salon in Chittorgarh. Where elegance meets precision — every style tells a story.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#offers">Offers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#team">Our Team</a>
+      <a href="#booking">Book Appointment</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Haircuts & Styling</a>
+      <a href="#services">Hair Color & Treatment</a>
+      <a href="#services">Bridal Makeup</a>
+      <a href="#services">Spa & Grooming</a>
+      <a href="#services">Nail & Skin Care</a>
+      <a href="#services">Beard & Mustache</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+917665469604">+91 7665469604</a>
+      <a href="https://wa.me/917665469604">WhatsApp</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=24.876875,74.617248">Get Directions</a>
+      <a href="#loyalty">Silk Club</a>
+      <a href="#blog">Blog</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Silk & Scissors Unisex Salon. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://wa.me/917665469604" target="_blank" aria-label="WhatsApp">&#10095;</a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">&#9829;</a>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">&#102;</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917665469604?text=Hi!%20I'd%20like%20to%20book%20an%20appointment" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">&#9990;</a>
+
+<!-- EMERGENCY QUICK BOOK -->
+<div class="emergency-bar">
+  <a href="tel:+917665469604" class="emergency-btn">&#9742; Urgent? Call Now</a>
+  <a href="#booking" class="emergency-btn" style="background:var(--gold);color:var(--black);box-shadow:0 4px 15px rgba(201,169,110,0.3)">&#9998; Quick Book</a>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8593;</button>
+
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="adminOverlay"></div>
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-header">
+    <h2>Bookings</h2>
+    <button class="admin-close" id="adminClose">&times;</button>
+  </div>
+  <div id="adminBookings"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========== THREE.JS 3D SCENE ========== */
+(function init3D() {
+  const container = document.getElementById('three-container');
+  if (!container) return;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+  camera.position.z = 15;
+  const group = new THREE.Group();
+  scene.add(group);
+  const geometries = [
+    new THREE.TorusGeometry(2, 0.6, 16, 50),
+    new THREE.OctahedronGeometry(1.5),
+    new THREE.IcosahedronGeometry(1.2),
+    new THREE.TorusKnotGeometry(1.5, 0.4, 64, 8),
+    new THREE.DodecahedronGeometry(1)
+  ];
+  const colors = [0xC9A96E, 0xE8D5A3, 0xA8883E, 0xFFFFFF, 0xC9A96E];
+  const meshes = [];
+  const posOffset = [[-4,2,0],[4,-1,-3],[-3,-3,-2],[3,3,-4],[0,0,-5]];
+  for (let i = 0; i < 5; i++) {
+    const mat = new THREE.MeshPhysicalMaterial({
+      color: colors[i % colors.length],
+      wireframe: true,
+      transparent: true,
+      opacity: 0.15 + Math.random() * 0.1,
+      metalness: 0.6,
+      roughness: 0.3,
+    });
+    const mesh = new THREE.Mesh(geometries[i % geometries.length], mat);
+    const [x, y, z] = posOffset[i];
+    mesh.position.set(x, y, z);
+    mesh.userData = { rotSpeed: { x: 0.002 + Math.random() * 0.005, y: 0.003 + Math.random() * 0.005 } };
+    group.add(mesh);
+    meshes.push(mesh);
+  }
+  const particleGeo = new THREE.BufferGeometry();
+  const particleCount = 200;
+  const positions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount * 3; i++) positions[i] = (Math.random() - 0.5) * 40;
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const particleMat = new THREE.PointsMaterial({
+    color: 0xC9A96E,
+    size: 0.05,
+    transparent: true,
+    opacity: 0.6,
+    blending: THREE.AdditiveBlending
+  });
+  const particles = new THREE.Points(particleGeo, particleMat);
+  scene.add(particles);
+  function animate() {
+    requestAnimationFrame(animate);
+    meshes.forEach(m => {
+      m.rotation.x += m.userData.rotSpeed.x;
+      m.rotation.y += m.userData.rotSpeed.y;
+    });
+    particles.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+  }
+  animate();
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+})();
+
+/* ========== ANNOUNCEMENT BAR ========== */
+const announcement = document.getElementById('announcement');
+const announcementClose = document.getElementById('announcementClose');
+const nav = document.getElementById('navbar');
+announcementClose.addEventListener('click', () => {
+  announcement.style.display = 'none';
+  nav.classList.remove('announce-active');
+});
+nav.classList.add('announce-active');
+
+/* ========== NAV ========== */
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.pageYOffset > 50);
+});
+mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ========== SCROLL TO TOP ========== */
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.pageYOffset > 400);
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ========== SERVICES DATA ========== */
+const services = [
+  { icon: '&#9986;', name: 'Precision Haircut', desc: 'Expert cuts tailored to your face shape and style preferences using premium tools.', price: 'From ₹299' },
+  { icon: '&#127912;', name: 'Hair Styling & Blow Dry', desc: 'Professional blow-dry, curls, and styling for any occasion — casual to red-carpet.', price: 'From ₹499' },
+  { icon: '&#127752;', name: 'Hair Color & Highlights', desc: 'Premium color treatments, highlights, balayage, and global color using L\'Oréal & Wella.', price: 'From ₹999' },
+  { icon: '&#129726;', name: 'Hair Spa & Treatment', desc: 'Deep conditioning, keratin repair, and spa treatments for healthy, lustrous hair.', price: 'From ₹599' },
+  { icon: '&#128112;&#8205;&#9792;&#65039;', name: 'Bridal Makeup', desc: 'Complete bridal packages including makeup, hairstyling, draping, and mehendi.', price: 'From ₹4999' },
+  { icon: '&#129656;', name: 'Facial & Skin Care', desc: 'Oxy, gold, fruit, and clean-up facials suited for all skin types.', price: 'From ₹399' },
+  { icon: '&#128133;', name: 'Manicure & Pedicure', desc: 'Luxury nail care with spa pedicure, gel polish, and nail art options.', price: 'From ₹499' },
+  { icon: '&#129705;', name: 'Beard & Mustache Grooming', desc: 'Precision beard trimming, shaping, and hot towel shave for the modern gentleman.', price: 'From ₹199' },
+  { icon: '&#128142;', name: 'Waxing & Hair Removal', desc: 'Full body waxing, threading, and facial hair removal with gentle products.', price: 'From ₹149' },
+];
+document.getElementById('servicesGrid').innerHTML = services.map(s =>
+  `<div class="service-card"><span class="service-icon">${s.icon}</span><h3>${s.name}</h3><p>${s.desc}</p><span class="service-price">${s.price}</span></div>`
+).join('');
+
+/* ========== OFFERS ========== */
+const offers = [
+  { badge: 'New Client', name: 'First Visit Special', desc: 'Flat 20% off on your first haircut, styling, or facial service. Walk-ins welcome.', valid: 'Valid for new customers only' },
+  { badge: 'Couple Deal', name: 'Couple Grooming Combo', desc: 'Bring your partner and save! Haircut + styling for two at a special combined price.', valid: 'Available Mon-Thu' },
+  { badge: 'Happy Hours', name: 'Weekday Morning Special', desc: 'Book between 10 AM - 12 PM on weekdays and enjoy 15% off on all spa services.', valid: 'Mon-Fri, 10 AM - 12 PM' },
+  { badge: 'Student Discount', name: 'Student Saver', desc: 'Valid student ID? Get 15% off on all haircuts and basic styling services.', valid: 'Valid ID required' },
+  { badge: 'Refer & Earn', name: 'Refer a Friend', desc: 'Refer a friend and both of you get ₹200 off on your next visit. Share the love!', valid: 'Credit applied after friend\'s visit' },
+  { badge: 'Wedding Pack', name: 'Bridal Package Deal', desc: 'Book full bridal makeup + hairstyling + draping and save ₹2000 off the total price.', valid: 'Book 7 days in advance' },
+];
+document.getElementById('offersGrid').innerHTML = offers.map(o =>
+  `<div class="offer-card"><span class="offer-badge">${o.badge}</span><h3>${o.name}</h3><p>${o.desc}</p><span class="offer-valid">${o.valid}</span></div>`
+).join('');
+
+/* ========== GALLERY ========== */
+const galleryItems = [
+  'Precision Cuts', 'Hair Styling', 'Color Magic', 'Bridal Looks', 'Spa Therapy', 'Our Studio', 'Nail Art', 'Makeup'
+];
+document.getElementById('galleryGrid').innerHTML = galleryItems.map(item =>
+  `<div class="gallery-item"><div class="gallery-item-inner">${item}</div></div>`
+).join('');
+
+/* ========== TEAM ========== */
+const team = [
+  { name: 'Priya Sharma', role: 'Senior Stylist', avatar: '&#9787;', bio: '10+ years of experience in precision cutting and bridal styling.' },
+  { name: 'Rohit Verma', role: 'Master Barber', avatar: '&#9996;', bio: 'Expert in beard grooming, hot towel shaves, and classic men\'s cuts.' },
+  { name: 'Anjali Mehta', role: 'Color Specialist', avatar: '&#127912;', bio: 'Certified in advanced color techniques from L\'Oréal Academy.' },
+  { name: 'Deepak Kumar', role: 'Spa Therapist', avatar: '&#129495;', bio: 'Trained in Ayurvedic and modern spa therapies for complete wellness.' },
+  { name: 'Neha Patel', role: 'Bridal Artist', avatar: '&#128142;', bio: 'Specializes in bridal makeup, draping, and traditional Indian styling.' },
+  { name: 'Sandeep Raj', role: 'Nail Technician', avatar: '&#128133;', bio: 'Creative nail art and luxury manicure/pedicure specialist.' },
+];
+document.getElementById('teamGrid').innerHTML = team.map(t =>
+  `<div class="team-card"><div class="team-avatar">${t.avatar}</div><h3>${t.name}</h3><div class="team-role">${t.role}</div><p>${t.bio}</p></div>`
+).join('');
+
+/* ========== TESTIMONIALS ========== */
+const testimonials = [
+  { name: 'Priya Sharma', role: 'Regular Client', stars: '&#9733;&#9733;&#9733;&#9733;&#9733;', text: 'Absolutely love the attention to detail! The stylists understand exactly what you want. Best salon in Chittorgarh, hands down.' },
+  { name: 'Rahul Mehta', role: 'Walk-in Client', stars: '&#9733;&#9733;&#9733;&#9733;&#9733;', text: 'Great experience from the moment I walked in. Got a precision haircut and beard trim — incredibly professional. Will definitely return.' },
+  { name: 'Ananya Gupta', role: 'Bridal Client', stars: '&#9733;&#9733;&#9733;&#9733;&#9733;', text: 'They made my wedding day perfect! The bridal makeup and hairstyling were absolutely stunning. Thank you for making me feel beautiful.' },
+  { name: 'Vikram Singh', role: 'Premium Member', stars: '&#9733;&#9733;&#9733;&#9733;&#9734;', text: 'Top-notch grooming services. The hot towel shave is an experience every man should try. Clean, hygienic, and very professional.' },
+];
+document.getElementById('testimonialsGrid').innerHTML = testimonials.map(t =>
+  `<div class="testimonial-card"><div class="testimonial-stars">${t.stars}</div><div class="testimonial-text">"${t.text}"</div><div class="testimonial-author">${t.name}</div><div class="testimonial-role">${t.role}</div></div>`
+).join('');
+
+/* ========== PRODUCTS ========== */
+const products = [
+  { logo: '&#127912;', name: 'L\'Oréal Professionnel', desc: 'Premium color & hair care' },
+  { logo: '&#10048;', name: 'Wella Professionals', desc: 'Advanced hair treatments' },
+  { logo: '&#9878;', name: 'Schwarzkopf', desc: 'Expert styling products' },
+  { logo: '&#127800;', name: 'Lakmé', desc: 'Professional makeup & beauty' },
+  { logo: '&#129513;', name: 'The Body Shop', desc: 'Natural skin & body care' },
+  { logo: '&#127847;', name: 'Nivea', desc: 'Grooming & skincare' },
+];
+document.getElementById('productsGrid').innerHTML = products.map(p =>
+  `<div class="product-card"><div class="product-logo">${p.logo}</div><h3>${p.name}</h3><p>${p.desc}</p></div>`
+).join('');
+
+/* ========== BLOG ========== */
+const blogPosts = [
+  { icon: '&#9986;', date: 'May 15, 2026', title: 'Summer Hair Care Guide', excerpt: 'Protect your hair from the harsh summer sun with our expert tips and product recommendations.' },
+  { icon: '&#127912;', date: 'May 8, 2026', title: 'Bridal Beauty Trends 2026', excerpt: 'From soft glam to bold lips — discover the top bridal beauty trends ruling this wedding season.' },
+  { icon: '&#129495;', date: 'April 28, 2026', title: 'The Art of the Hot Towel Shave', excerpt: 'Experience the timeless ritual of a traditional hot towel shave — the ultimate men\'s grooming luxury.' },
+  { icon: '&#127752;', date: 'April 20, 2026', title: 'Balayage vs. Highlights', excerpt: 'Not sure which coloring technique is right for you? We break down the differences and results.' },
+  { icon: '&#128133;', date: 'April 12, 2026', title: 'Nail Art: Minimal to Maximal', excerpt: 'From subtle French tips to elaborate designs — find your next nail inspiration here.' },
+  { icon: '&#129726;', date: 'April 5, 2026', title: 'Why Regular Hair Spa Matters', excerpt: 'Deep conditioning isn\'t just a luxury — it\'s essential for healthy, vibrant hair year-round.' },
+];
+document.getElementById('blogGrid').innerHTML = blogPosts.map(p =>
+  `<div class="blog-card"><div class="blog-image">${p.icon}</div><div class="blog-card-body"><div class="blog-date">${p.date}</div><h3>${p.title}</h3><p>${p.excerpt}</p></div></div>`
+).join('');
+
+/* ========== FAQ ========== */
+const faqs = [
+  { q: 'Do I need to book an appointment or are walk-ins welcome?', a: 'Both! We welcome walk-ins, but we recommend booking in advance to secure your preferred time slot — especially on weekends and for bridal services.' },
+  { q: 'What services do you offer for men?', a: 'We offer a full range of men\'s grooming services including precision haircuts, beard trimming & shaping, hot towel shaves, facials, hair color, and spa treatments.' },
+  { q: 'What brands do you use for hair color and treatments?', a: 'We use premium professional brands including L\'Oréal Professionnel, Wella Professionals, and Schwarzkopf for all our color and treatment services.' },
+  { q: 'How long does a typical haircut appointment take?', a: 'A standard haircut appointment takes approximately 30-45 minutes. More complex services like coloring, bridal makeup, or spa treatments may take 1-3 hours.' },
+  { q: 'What is your cancellation policy?', a: 'We kindly request at least 2 hours notice for cancellations. Late cancellations may result in a nominal fee for recurring appointments.' },
+  { q: 'Do you offer bridal makeup packages?', a: 'Yes! We offer comprehensive bridal packages including makeup, hairstyling, draping, and mehendi. We recommend booking at least 7 days in advance for bridal services.' },
+  { q: 'What payment methods do you accept?', a: 'We accept cash, UPI (Google Pay, PhonePe, Paytm), and credit/debit cards. All major payment methods are welcome.' },
+  { q: 'Is parking available near the salon?', a: 'Yes, there is ample parking space available near our salon in Pratap Nagar, making it convenient for you to visit.' },
+];
+const faqList = document.getElementById('faqList');
+faqs.forEach((f, i) => {
+  const div = document.createElement('div');
+  div.className = 'faq-item';
+  div.innerHTML = `
+    <div class="faq-question" data-index="${i}">
+      <h3>${f.q}</h3>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer"><p>${f.a}</p></div>
+  `;
+  div.querySelector('.faq-question').addEventListener('click', () => {
+    div.classList.toggle('active');
+  });
+  faqList.appendChild(div);
+});
+
+/* ========== BOOKING SYSTEM ========== */
+const timeSlots = ['10:00','10:30','11:00','11:30','12:00','12:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'];
+const bookService = document.getElementById('bookService');
+services.forEach(s => { bookService.innerHTML += `<option value="${s.name}">${s.name} - ${s.price}</option>`; });
+const timeSlotsContainer = document.getElementById('timeSlots');
+let selectedTime = null;
+function renderTimeSlots(date) {
+  const key = date || '';
+  const booked = JSON.parse(localStorage.getItem('ss_bookings') || '{}');
+  const bookedSlots = booked[key] || [];
+  timeSlotsContainer.innerHTML = '';
+  selectedTime = null;
+  timeSlots.forEach(t => {
+    const isBooked = bookedSlots.includes(t);
+    const div = document.createElement('div');
+    div.className = 'time-slot' + (isBooked ? ' booked' : '');
+    div.textContent = t;
+    if (!isBooked) {
+      div.addEventListener('click', () => {
+        document.querySelectorAll('.time-slot').forEach(el => el.classList.remove('selected'));
+        div.classList.add('selected');
+        selectedTime = t;
+      });
+    }
+    timeSlotsContainer.appendChild(div);
+  });
+}
+renderTimeSlots();
+document.getElementById('bookDate').addEventListener('change', (e) => renderTimeSlots(e.target.value));
+document.getElementById('bookDate').valueAsDate = new Date();
+document.getElementById('bookDate').min = new Date().toISOString().split('T')[0];
+document.getElementById('bookDate').addEventListener('change', (e) => renderTimeSlots(e.target.value));
+
+document.getElementById('submitBooking').addEventListener('click', () => {
+  const name = document.getElementById('bookName').value.trim();
+  const phone = document.getElementById('bookPhone').value.trim();
+  const service = document.getElementById('bookService').value;
+  const date = document.getElementById('bookDate').value;
+  const notes = document.getElementById('bookNotes').value.trim();
+  if (!name || !phone || !service || !date || !selectedTime) {
+    showToast('Please fill all required fields and select a time slot.');
+    return;
+  }
+  if (phone.length < 10) { showToast('Please enter a valid phone number.'); return; }
+  const booking = { name, phone, service, date, time: selectedTime, notes, status: 'pending', createdAt: new Date().toISOString() };
+  const bookings = JSON.parse(localStorage.getItem('ss_bookings') || '{}');
+  if (!bookings[date]) bookings[date] = [];
+  bookings[date].push(selectedTime);
+  localStorage.setItem('ss_bookings', JSON.stringify(bookings));
+  const allBookings = JSON.parse(localStorage.getItem('ss_all_bookings') || '[]');
+  allBookings.push(booking);
+  localStorage.setItem('ss_all_bookings', JSON.stringify(allBookings));
+  renderTimeSlots(date);
+  document.getElementById('bookName').value = '';
+  document.getElementById('bookPhone').value = '';
+  document.getElementById('bookService').value = '';
+  document.getElementById('bookNotes').value = '';
+  selectedTime = null;
+  showToast('Booking confirmed! We\'ll contact you shortly. Thank you!');
+});
+
+/* ========== ADMIN PANEL ========== */
+function openAdmin() {
+  document.getElementById('adminPanel').classList.add('open');
+  document.getElementById('adminOverlay').classList.add('open');
+  renderAdminBookings();
+}
+function closeAdmin() {
+  document.getElementById('adminPanel').classList.remove('open');
+  document.getElementById('adminOverlay').classList.remove('open');
+}
+document.getElementById('adminClose').addEventListener('click', closeAdmin);
+document.getElementById('adminOverlay').addEventListener('click', closeAdmin);
+function renderAdminBookings() {
+  const all = JSON.parse(localStorage.getItem('ss_all_bookings') || '[]');
+  const container = document.getElementById('adminBookings');
+  if (!all.length) {
+    container.innerHTML = '<p style="color:rgba(245,240,232,0.3);text-align:center;margin-top:3rem">No bookings yet</p>';
+    return;
+  }
+  container.innerHTML = all.reverse().map((b, i) => `
+    <div class="booking-item">
+      <h4>${b.name}</h4>
+      <p>${b.phone} &middot; ${b.service}</p>
+      <p>${b.date} at ${b.time}</p>
+      ${b.notes ? `<p style="font-size:0.75rem">Note: ${b.notes}</p>` : ''}
+      <span class="status ${b.status}">${b.status}</span>
+    </div>
+  `).join('');
+}
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.key === 'b') { e.preventDefault(); openAdmin(); }
+});
+
+/* ========== TOAST ========== */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+/* ========== SCROLL REVEAL ========== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.service-card, .testimonial-card, .gallery-item, .stat, .about-text, .about-image, .booking-form, .booking-info, .contact-detail-item, .map-container, .offer-card, .team-card, .product-card, .blog-card, .faq-item, .loyalty-content, .loyalty-tier, .loyalty > div:last-child').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  observer.observe(el);
+});
+
+/* ========== SEO TRACKING ========== */
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('ref') || params.get('utm_source')) {
+    localStorage.setItem('ss_tracking', JSON.stringify({
+      source: params.get('utm_source') || params.get('ref'),
+      medium: params.get('utm_medium'),
+      campaign: params.get('utm_campaign'),
+      timestamp: new Date().toISOString()
+    }));
+  }
+})();
+
+console.log('%c Silk & Scissors Unisex Salon ', 'background:#C9A96E;color:#0D0D0D;font-size:14px;padding:8px 12px;font-weight:600');
+console.log('%c Premium Grooming in Chittorgarh | Book: +91 7665469604', 'color:#C9A96E;font-size:12px');
+</script>
+</body>
+</html>
